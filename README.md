@@ -1,16 +1,21 @@
 # Oriabure-Farms
 technologies used in this project will be:
-git --> for version control
 sass --> css preproccesor
 anime.js --> javascript animation library
 html
 vanilla javascript
-small portion of backend (facoltativo):
+small portion of backend:
 php --> backend scripting language
 mysql --> data base
 
-Next-time:
-per il progetto della donatella, oltre alle technologie sopra, userò anche
-INKSCAPE.
+tools:
+git --> for version control;
+firefox/chrome javascript debug ; how to debug javascript in general;
+accessibility tools;
+performance tools;
 
-
+#     stages
+git --> dato che è la parte iniziale;
+sass --> ho fatto un riassunto veloce , giusto per potersi mettere nella pratica (tenere d'occhio il video e la documentazione.
+anime.js --> da vedere pian piano sulla documentazione mentre lo implemento.
+vanilla javascript --> ho imparato il dom
