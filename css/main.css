@@ -409,11 +409,15 @@ button {
       justify-content: space-around;
   height: 100px;
   position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #f8fff8;
 }
 
 .logo {
-  width: 100px;
-  height: 100%;
+  width: 90px;
+  height: 100px;
 }
 
 .nav-content {
@@ -424,32 +428,63 @@ button {
           flex-direction: column;
 }
 
+/* my Hamburger menu
+====================================================*/
 .hamburger-content {
-  width: 30px;
-  height: 30px;
-  display: absolute;
-}
-
-.hamburger-item {
-  width: 100%;
-  margin-bottom: 6px;
-  border-radius: 5px;
-  position: absolute;
-  top: 50%;
+  width: 2rem;
+  height: 1.8rem;
+  position: relative;
 }
 
 .hamburger-item, .hamburger-item::before, .hamburger-item::after {
-  height: 3px;
+  height: 0.18rem;
   background-color: #a0e52c;
-  display: block;
+  width: 100%;
+  border-radius: 5px;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.hamburger-item {
+  position: absolute;
+  top: 45%;
+  opacity: 1;
 }
 
 .hamburger-item::before {
   content: '';
+  position: absolute;
+  top: 400%;
+  left: 0;
 }
 
 .hamburger-item::after {
   content: '';
+  position: absolute;
+  left: 0;
+  top: -400%;
+}
+
+.hamburger-content--active .hamburger-item {
+  background-color: rgba(0, 0, 0, 0);
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.hamburger-content--active .hamburger-item::before {
+  top: 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.hamburger-content--active .hamburger-item:after {
+  top: 0;
+  -webkit-transform: rotate(315deg);
+          transform: rotate(315deg);
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 /* modules

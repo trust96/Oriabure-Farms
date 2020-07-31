@@ -1,5 +1,5 @@
-$hamburger-width:30px;
-$hamburger-height:30px;
+$hamburger-width:2rem; // mettere sempre il width e height del hamburger a Xrem. cosi che sia pure esso responsive.
+$hamburger-height:1.8rem;
 $hamburger-item-height:($hamburger-height * 10px)/100px ;
 
 .nav{
@@ -7,41 +7,68 @@ $hamburger-item-height:($hamburger-height * 10px)/100px ;
     justify-content: space-around;
     height:100px;
     position:relative;
+    align-items: center;
+    background-color: $white;
 }
 .logo{
-    width:100px;
-    height:100%;
+    width:90px;
+    height:100px;
 }
 .nav-content{
     display:none;
     flex-direction: column;
 
 }
-
+/* my Hamburger menu
+====================================================*/
+//osserviamo che funziona per qualunque valure di altezza o base che io metta.
 .hamburger-content{
-    width:30px;
-    height:30px;
-    display: absolute;
+    width:$hamburger-width;
+    height:$hamburger-height;
+    position: relative;
 }
-.hamburger-item{
-    width:100%;
-    margin-bottom: 6px;
-    border-radius:5px;
-    position:absolute;
-    top:50%;
 
-}
 .hamburger-item, .hamburger-item::before, .hamburger-item::after{
     height:$hamburger-item-height;
     background-color: $primary;
-    display:block;
+    width:100%;
+    border-radius:5px;
+    transition:all 0.5s ease-in-out;
+}
+.hamburger-item{
+    position:absolute;
+    top:45%;
+    opacity:1;
 }
 .hamburger-item::before{
     content:'';
+    position:absolute;
+    top:400%; // da capire meglio perchè devo mettere 450 invece di 45%
+    left:0;
+    
+
     
 
 }
 .hamburger-item::after{
     content:'';
+    position:absolute;
+    left:0;
+    top:-400%; // devo ancora capire perchè devo mettere 450 invece di 45 per farlo funzionare
 
+}
+
+.hamburger-content--active .hamburger-item{
+    background-color: rgba(0,0,0,0); // perchè se metto solo opacity, influenzzerebbe anche :before e :after.
+    transition:all 0.5s ease-in-out;
+}
+.hamburger-content--active .hamburger-item::before{
+    top:0;
+    transform: rotate(45deg);
+    transition:all 0.5s ease-in-out;
+}
+.hamburger-content--active .hamburger-item:after{
+    top:0;
+    transform: rotate(315deg);
+    transition:all 0.5s ease-in-out;
 }

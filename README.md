@@ -29,14 +29,24 @@ ho creato per ora solo il markup del nav. ma penso che devo aggiungere anche il 
 
 
                         day 2
-notare che ::after e ::before ereditano le dimensione degli element a cui li aggangiamo.
+hamburger:
+notare che ::after e ::before ereditano le dimensione degli element a cui li aggangiamo. è sempre inline
 
-per hamburger menu: uso postion absolute per il container (position : realtive => per il mio nav). position : absolute per before , after e il mio div.
 flex: se un suo child è absolute, non partecipa più nel flex.
 
-uso top per sistemarlo per bene.
-1 => top: da calcolare
-2 => top:50%
-3 => top: da calcolare
+uso top per sistemarlo per bene. in questo modo. 1 sta in alto, 2 sta a metà e 3 sta al margine sinistro.
 
-devo usare più valori relative possibili
+1 => top: -450% (è il punto massimo)
+2 => top:45%
+3 => top: 450% (è il punto massimo)
+
+ho usato solo valori relative. ho usato rem per il height e width del mio button. cosi che chi cambia il suo font size, avrà un visuale nitida del hamburger menu.
+
+NON usare opacity sul 2nd item, inquanto fa diventare invisibile pure gli altri 2.
+quindi con ::afeter e ::before: questi pseudo lement diventano rispettivamente il primo e l'ultimo figlio dell'elemento a cui lo associamo.
+
+non posso targetizzare pseudo element con javascript ??
+
+ANIMAZIONE:
+Mettere il transition sia alla loro modalità active che quella normale, cosi che l'effetto dell'animation sia quando clicchiamo che quando riclicchiamo.
+

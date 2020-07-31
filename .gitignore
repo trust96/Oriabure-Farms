@@ -4,3 +4,4 @@ Relazione
 *.sass.map
 *.scss.map
 README.md
+node_modules
