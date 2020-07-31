@@ -1,0 +1,47 @@
+$hamburger-width:30px;
+$hamburger-height:30px;
+$hamburger-item-height:($hamburger-height * 10px)/100px ;
+
+.nav{
+    display:flex;
+    justify-content: space-around;
+    height:100px;
+    position:relative;
+}
+.logo{
+    width:100px;
+    height:100%;
+}
+.nav-content{
+    display:none;
+    flex-direction: column;
+
+}
+
+.hamburger-content{
+    width:30px;
+    height:30px;
+    display: absolute;
+}
+.hamburger-item{
+    width:100%;
+    margin-bottom: 6px;
+    border-radius:5px;
+    position:absolute;
+    top:50%;
+
+}
+.hamburger-item, .hamburger-item::before, .hamburger-item::after{
+    height:$hamburger-item-height;
+    background-color: $primary;
+    display:block;
+}
+.hamburger-item::before{
+    content:'';
+    
+
+}
+.hamburger-item::after{
+    content:'';
+
+}
