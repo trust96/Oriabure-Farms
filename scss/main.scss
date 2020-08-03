@@ -3,8 +3,7 @@
 @import 'base/normalize';
 
 @import 'base/base';
-
-
+@import 'base/type';
 /* theme
 ========================================================================= */
 @import 'theme/theme';
@@ -13,10 +12,12 @@
 
 
 
+
 /* layout
 ========================================================================= */
 @import 'layout/nav';
 @import 'layout/header';
+@import 'layout/grid';
 /* modules
 ========================================================================= */
 

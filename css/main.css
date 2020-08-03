@@ -365,6 +365,7 @@ body {
   line-height: 1.5;
   color: #000;
   text-align: center;
+  overflow-x: hidden;
 }
 
 button {
@@ -390,7 +391,17 @@ button {
 
 .rsp-img {
   max-width: 100%;
-  height: auto;
+}
+
+.unstyled-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.unstyled-list a {
+  text-decoration: none;
+  color: inherit;
 }
 
 /* theme
@@ -399,33 +410,102 @@ button {
 ======================================== */
 /* Typography
 ======================================== */
+h1 {
+  font-weight: 600;
+}
+
 /* layout
 ========================================================================= */
+@-webkit-keyframes navigation {
+  from {
+    opacity: 0;
+    -webkit-transform: translatex(80px);
+            transform: translatex(80px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translatex(0px);
+            transform: translatex(0px);
+  }
+}
+@keyframes navigation {
+  from {
+    opacity: 0;
+    -webkit-transform: translatex(80px);
+            transform: translatex(80px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translatex(0px);
+            transform: translatex(0px);
+  }
+}
+
 .nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
   height: 100px;
-  position: relative;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-color: #f8fff8;
+  background-color: #68edcb;
 }
 
 .logo {
-  width: 90px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
 }
 
 .nav-content {
-  display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background-color: #a0e52c;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  -webkit-transform: translatex(100%);
+          transform: translatex(100%);
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.nav-content--active {
+  -webkit-transform: translatex(0%);
+          transform: translatex(0%);
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.nav-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 100%;
+          flex: 1 1 100%;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.15);
+}
+
+.nav-item a {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-transform: capitalize;
+}
+
+.nav-item a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* my Hamburger menu
@@ -433,12 +513,14 @@ button {
 .hamburger-content {
   width: 2rem;
   height: 1.8rem;
-  position: relative;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
 }
 
 .hamburger-item, .hamburger-item::before, .hamburger-item::after {
   height: 0.18rem;
-  background-color: #a0e52c;
+  background-color: #859763;
   width: 100%;
   border-radius: 5px;
   -webkit-transition: all 0.5s ease-in-out;
@@ -481,10 +563,59 @@ button {
 
 .hamburger-content--active .hamburger-item:after {
   top: 0;
-  -webkit-transform: rotate(315deg);
-          transform: rotate(315deg);
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
+}
+
+/* Navigation
+=====================================================*/
+.main-header {
+  height: 60vh;
+  width: 100%;
+  color: #f8fff8;
+}
+
+.image-slider {
+  height: 100%;
+  width: 100%;
+}
+
+.slide1 {
+  width: 100%;
+  height: 100%;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(../images/img1.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/img1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.slide2 {
+  width: 100%;
+  height: 100%;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(../images/img2.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/img2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.slide3 {
+  width: 100%;
+  height: 100%;
+  border-top: solid #a0e52c 2px;
+  background-color: rgba(0, 0, 0, 0.8);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(../images/img3.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/img3.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.main-title {
+  color: #a0e52c;
 }
 
 /* modules
