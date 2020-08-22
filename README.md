@@ -30,16 +30,16 @@ performance tools;
 * vanilla javascript --> ho imparato il dom, ma ho ancora da imparare.
     * dove: 
 
-## Project Fase
+##                           Project Fase
 
-### Day 1
+###                           fase 1
 ho usato gitignore.io per creare il linguaggio per ignorare i file scss.
 
 per prima cosa ho creato su scss: base e theme, dove base contiene: il mio personale reset css (molto corto) + normalize css. e theme contiene lo stile che voglio dare alla pagina, quindi COLORS e TYPOGRAPHY.
 ho creato per ora solo il markup del nav. ma penso che devo aggiungere anche il div container che ho visto aggiungere da powell
 
 
-### Day 2
+###                             fase 2
 ---
 #### hamburger
 notare che ::after e ::before ereditano le dimensione degli element a cui li aggangiamo. è sempre inline
@@ -62,7 +62,7 @@ non posso targetizzare pseudo element con javascript ??
 ANIMAZIONE:
 Mettere il transition sia alla loro modalità active che quella normale, cosi che l'effetto dell'animation sia quando clicchiamo che quando riclicchiamo.
 
-### Day 3/4
+###                              fase 3/4
 
 Ho finito l'hamburger:
 dato che il pseudo element non puo' essere targetizzato direttamente su javascript, ho usato il selector
@@ -70,12 +70,28 @@ PARENT-SELECTOR CHILDSELECTOR {}. sia per before che per after. perchè ricordia
 
 #### Navigation:
 per il navigation:
-ul --> 
-display:flex
-position:absolute //per poterlo co
+* ul
+    * display:flex
+    * flex-direction: column
+    * position:absolute //per perchè cominciamo con il mobile e volevo una cosa che coprisse tutto lo schermo.
+        * top:0 ; width:100vw; height: 100vh // per assicurarsi che che cominciasse dal top. e che occupasse tutta la pagina.
+    
+    * li:
+        * display: flex //per trattare "a" come un flex-item;
+        * flex-direction: row (default)
+        * flex: 1 1 // ogni flex-item avrà la stessa altezza  ***grazie a flex-grow e flex-shrink = 1***
+        * border-buttom: solid 1px black con opacity // per aggiungere un po' di stile
+
+        * a:
+            * flex-basis:100% // cosi che occupi tutto il width disponibile;
+            * display : flex //per poterlo centrare con justify-content e align-items.
+            * hover: metto un background-color nero con opacity // cosi che quando faccio hover, si scurisce.
 
 
 ### Day5
-** diciamocelo. mi sono un po' incasinato. dato che ho skippato alcunne fasi del mio work flow. volevo fare veloce ma alla fine, ho finito per incasinare tutto.
-quindi ora mi tocca riordinare prima di pensare anche minimamente di rprendere come si deve. **
+**diciamocelo. mi sono un po' incasinato. dato che ho skippato alcunne fasi del mio work flow. volevo fare veloce ma alla fine, ho finito per incasinare tutto. quindi ora mi tocca riordinare prima di pensare anche minimamente di rprendere come si deve.**
+
+###                       fase 6
+per prima cosa ho implementato BEM. poi ho fatto per bene il readme per ogni component
+
 

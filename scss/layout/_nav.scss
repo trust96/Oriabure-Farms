@@ -1,11 +1,11 @@
 $hamburger-width:2rem; // mettere sempre il width e height del hamburger a Xrem. cosi che sia pure esso responsive.
 $hamburger-height:1.8rem;
-$hamburger-item-height:($hamburger-height * 10px)/100px ;
+$menu__item-height:$hamburger-height * 10px /100px ;
 
 @keyframes navigation{
     from{
         opacity:0;
-        transform: translatex(80px);
+        transform: translatex(250px);
     }
     to{
         opacity:1;
@@ -14,74 +14,77 @@ $hamburger-item-height:($hamburger-height * 10px)/100px ;
 }
 
 .nav{
-    height:100px;
-    background-color: $accent;
+    height:90px;
+    width:100%; /* cosi che il menu resti a destra */
+    background-color: $white;
+    position:fixed;
+    z-index: 100; /* perchè altrimenti il title-box di about-us ci va sopra*/
 }
-.logo{
-    width:50px;
-    height:50px;
-}
-.nav-content{
+.nav__list{
+    width:100vw;
+    height:100vh;
     display:flex;
     flex-direction: column;
     justify-content: space-around;
-    background-color: $primary;
+    background-color: $white;
     position:absolute;
-    top:0;
-    width:100vw;
-    height:100vh;
+    top:0;  /* per fare si che sia ancorato a al top right*/
+    right:0;
     transform: translatex(100%);
     transition:all 0.5s ease-in-out;
 
 }
 
-.nav-content--active{
+.nav__list--active{
     transform:translatex(0%);
     transition:all 0.5s ease-in-out;
 
 }
-.nav-item{
+.nav__item{
+    border-bottom: solid 1px rgba(0,0,0,0.15); /* piccolo style, non ha nessun valore semantico*/
     display:flex;
     flex: 1 1 100%;
-    border-bottom: solid 1px rgba(0,0,0,0.15);
 }
-.nav-item a{
-
+.nav__item a{
     flex-basis:100%;
     display:flex;
     justify-content:center;
     align-items:center;
     text-transform: capitalize;
+    color:$secondary;
+    font-weight: $font-bold;
     &:hover{
-          background-color: rgba(0,0,0,0.10);
+          background-color: rgba(0,0,0,0.20);
       }
     }
 
 
 /* my Hamburger menu
 ====================================================*/
+
 //osserviamo che funziona per qualunque valure di altezza o base che io metta.
-.hamburger-content{
+
+.menu{
     width:$hamburger-width;
     height:$hamburger-height;
     position: absolute;
-    top:1rem;
+    top:1.5rem;
     right:1rem;
 }
 
-.hamburger-item, .hamburger-item::before, .hamburger-item::after{
-    height:$hamburger-item-height;
+.menu__item, .menu__item::before, .menu__item::after{
+    height:$menu__item-height;
     background-color: $secondary;
     width:100%;
     border-radius:5px;
     transition:all 0.5s ease-in-out;
 }
-.hamburger-item{
+.menu__item{
     position:absolute;
     top:45%;
     opacity:1;
 }
-.hamburger-item::before{
+.menu__item::before{
     content:'';
     position:absolute;
     top:400%; // da capire meglio perchè devo mettere 450 invece di 45%
@@ -91,7 +94,7 @@ $hamburger-item-height:($hamburger-height * 10px)/100px ;
     
 
 }
-.hamburger-item::after{
+.menu__item::after{
     content:'';
     position:absolute;
     left:0;
@@ -99,16 +102,16 @@ $hamburger-item-height:($hamburger-height * 10px)/100px ;
 
 }
 
-.hamburger-content--active .hamburger-item{
+.menu--active .menu__item{
     background-color: rgba(0,0,0,0); // perchè se metto solo opacity, influenzzerebbe anche :before e :after.
     transition:all 0.5s ease-in-out;
 }
-.hamburger-content--active .hamburger-item::before{
+.menu--active .menu__item::before{
     top:0;
     transform: rotate(45deg);
     transition:all 0.5s ease-in-out;
 }
-.hamburger-content--active .hamburger-item:after{
+.menu--active .menu__item:after{
     top:0;
     transform: rotate(-45deg);
     transition:all 0.5s ease-in-out;

@@ -1,27 +1,12 @@
 /* Base
 ========================================================================= */
-@import 'base/normalize';
+@import 'base/color', 'base/type', 'base/normalize';
 
-@import 'base/base';
-@import 'base/type';
-/* theme
-========================================================================= */
-@import 'theme/theme';
+@import 'base/base', 'base/typography';
 
-@import 'theme/typography';
-
-
-
-
-/* layout
-========================================================================= */
-@import 'layout/nav';
-@import 'layout/header';
-@import 'layout/grid';
 /* modules
 ========================================================================= */
-
-
-body{
-    font-family: $font-main;
-}
+@import 'modules/logo', 'modules/button';
+/* layout
+========================================================================= */
+@import 'layout/grid', 'layout/nav', 'layout/header', 'layout/about-us';

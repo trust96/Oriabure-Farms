@@ -1,9 +1,7 @@
 *::before, *::after, *{
     box-sizing: border-box;
   }
-  h1,h2,h3,h4,h5,h6,p{
-    margin:0;
-  }
+  
   html,body{
   margin:0;
   padding:0;
@@ -11,39 +9,36 @@
   }
 
   body{
+    width:100%;
     line-height:1.5;
     color:#000;
     text-align:center;
-    overflow-x: hidden;
+    overflow-x: hidden; /* for my nav and header-slider */
+    font-family: $font-main;
+    position:relative; /*for my hamburger menu */
   }
-  
-  button{
-    padding: 0;
-    border: none;
-    font: inherit;
-    color: inherit;
-    background-color: transparent;
-    cursor: pointer;
-  }
-.btn{
-    text-decoration:none;
-    color:inherit;
-}
-.clear::after{                /* questo è un state changer che mette clear per il float */
+
+.clear::after{                /* questo è un state changer che mette clear per il float. è da mettere sul container, dato che after funge da ultimo figlio */
     content:'';
     clear:both;
     display:table;
   }
   
   .rsp-img{
-    max-width:100%;
+    max-width:100%;  /* per le foto */
   }
   .unstyled-list{
-    list-style:none; //lo uso prevalentemente per navigation
+    list-style:none; /* lo uso prevalentemente per navigation */
     padding:0;
     margin:0;
   }
   .unstyled-list a{
-    text-decoration: none;
+    text-decoration: none; /* questo mi serve per <ul> del nav. */
     color:inherit;
+  }
+  .container{
+    width:90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow-x:hidden; /* per il mio header: ho tre items dentro, per evitare che si veda.*/
   }

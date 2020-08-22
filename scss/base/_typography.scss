@@ -1,0 +1,92 @@
+/*
+* in questa sezione saranno definiti tutte le cose riguardanti il testo
+*
+*/
+/* DEFAULT TYPOGRAPHY
+===================================================================================*/
+p {
+    margin: 0 0 0.75rem;
+    text-align:justify;
+    &:last-child {
+        margin: 0;
+        /*per ragioni di estetica, altrimenti il margin all'ultimo <p> o <heading> andrebbe
+                     a squillibrare il white space che metto tra i vari layout */
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-family: $font-secondary;
+    margin: 0 0 0.75rem;
+
+    &:last-child {
+        margin: 0;
+        /*per ragioni di estetica, altrimenti il margin all'ultimo <p> o <heading> andrebbe
+                   a squillibrare il white space che metto tra i vari layout */
+    }
+}
+
+/* MAIN TYPOGRAPHY
+  ====================================================================================*/
+.title--main {
+    font-size: 2rem;
+    font-weight: $font-semibold;
+    line-height: 1;
+
+}
+
+.para--main {
+    font-size: 1rem;
+    font-weight: $font-regular;
+}
+
+/* SECONDARY TYPOGRAPHY
+==========================================================================================*/
+.title--secondary {
+    font-size:1.8rem;
+    font-weight: $font-regular;
+    line-height: 1.5;
+}
+
+.para--secondary {}
+
+/* ABOUT-US
+=============================================================================================*/
+.title-box{
+    margin:0;
+    transform: translateY(55%);
+    display: inline-block;
+    background-color:darken($secondary, 30%);
+    padding: 10px;
+
+}
+.title-box::after{
+    content:'';
+    display:block;
+    width: 100px;
+    height: 3px;
+    margin: 0 auto;
+    background-color: $secondary;
+}
+.text-box{
+    border: 10px solid $secondary;
+    padding: 30px 12px 5px 12px;
+
+}
+// .text-box::after{
+//     content:'';
+//     display:block;
+//     height:60vh;
+//     width:80%;
+//     background-color:yellow;
+//     position:absolute;
+//     top:13vh;
+//     right:0;
+//     border: 10px solid $secondary;
+// }

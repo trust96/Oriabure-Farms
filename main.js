@@ -2,15 +2,15 @@
 /* NavBar
 =============================================================== */
 
-let btn = document.querySelector('.hamburger-content');
+let btn = document.querySelector('.menu');
 btn.onclick = function () {
-    let nav = document.querySelector('.nav-content');
-    let navLink = document.querySelectorAll('.nav-item a');
-    let navItem = document.querySelectorAll('.nav-item');
+    let nav = document.querySelector('.nav__list');
+    let navLink = document.querySelectorAll('.nav__item a');
+    let navItem = document.querySelectorAll('.nav__item');
 
-    btn.classList.toggle('hamburger-content--active'); // menu hamburger
+    btn.classList.toggle('menu--active'); // menu hamburger
 
-    nav.classList.toggle('nav-content--active'); // Nav sliding
+    nav.classList.toggle('nav__list--active'); // Nav sliding
 
         for (let i = 0; i < 4; i++) { // per animazione delle singole <a>
 
