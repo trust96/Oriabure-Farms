@@ -6,7 +6,6 @@
 ===================================================================================*/
 p {
     margin: 0 0 0.75rem;
-    text-align:justify;
     &:last-child {
         margin: 0;
         /*per ragioni di estetica, altrimenti il margin all'ultimo <p> o <heading> andrebbe
@@ -35,38 +34,24 @@ h6 {
 /* MAIN TYPOGRAPHY
   ====================================================================================*/
 .title--main {
-    font-size: 2rem;
     font-weight: $font-semibold;
     line-height: 1;
-
 }
 
 .para--main {
     font-size: 1rem;
     font-weight: $font-regular;
+    text-align:justify;
 }
 
 /* SECONDARY TYPOGRAPHY
 ==========================================================================================*/
 .title--secondary {
-    font-size:1.8rem;
-    font-weight: $font-regular;
-    line-height: 1.5;
+    font-weight: $font-semibold;
+    font-family: $font-main;
 }
 
-.para--secondary {}
-
-/* ABOUT-US
-=============================================================================================*/
-.title-box{
-    margin:0;
-    transform: translateY(55%);
-    display: inline-block;
-    background-color:darken($secondary, 30%);
-    padding: 10px;
-
-}
-.title-box::after{
+.title--secondary::after{
     content:'';
     display:block;
     width: 100px;
@@ -74,19 +59,73 @@ h6 {
     margin: 0 auto;
     background-color: $secondary;
 }
-.text-box{
-    border: 10px solid $secondary;
-    padding: 30px 12px 5px 12px;
+.para--secondary {
+    font-size: 0.8rem;
+    font-weight: $font-regular;
+    text-align:justify;
+}
+/* TERTIARY TYPOGRAPHY
+=============================================================================================*/
+.title--tertiary{
+// font-size:1.2rem;
+font-family: $font-main;
+}
+.para--tertiary{
+    font-size: 0.6rem;
+    font-weight: $font-regular;
+    text-align:justify;
+}
+/* QUATERNARY TYPOGRAPHY
+=============================================================================================*/
+.title--quaternary{
+font-size:1rem;
+font-family: $font-main;
+}
+
+
+    .text--box{
+        border: 10px solid $secondary;
+        padding: 30px 12px 5px 12px;
+        text-align:justify;
+    
+    }
+    
+
+/* ABOUT-US
+=============================================================================================*/
+.about-us__title{
+    margin:0;
+    transform: translateY(55%);
+    display: inline-block;
+    background-color:darken($secondary, 30%);
+    padding: 10px;
 
 }
-// .text-box::after{
-//     content:'';
-//     display:block;
-//     height:60vh;
-//     width:80%;
-//     background-color:yellow;
-//     position:absolute;
-//     top:13vh;
-//     right:0;
-//     border: 10px solid $secondary;
-// }
+
+/* OUR SERVICES
+===============================================================================================*/
+/*FOOTER
+===============================================================================================*/
+.footer__item{
+    color:$black;
+}
+.footer__title{
+    font-size: 1.4rem;
+    font-family: $font-main;
+    color:#000;
+}
+.footer__icon{
+    font-size:2rem;
+}
+.footer__nav, .footer__contact{
+    text-transform:capitalize;
+}
+.footer__para{
+    font-size:0.8rem;
+}
+
+/* TEXT UTILITIES
+===================================================================================================*/
+.text--left{
+    text-align:left;
+}

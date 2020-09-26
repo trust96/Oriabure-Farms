@@ -1,0 +1,9 @@
+.form__item:not(:last-child){
+    padding-bottom: 10px;
+}
+
+.form__text{
+    width:100%;
+    border:none;
+    border-bottom: grey solid 3px;
+}

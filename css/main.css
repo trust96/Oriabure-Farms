@@ -348,6 +348,12 @@ template {
   box-sizing: border-box;
 }
 
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -356,6 +362,7 @@ html, body {
 
 body {
   width: 100%;
+  min-height: 100%;
   line-height: 1.5;
   color: #000;
   text-align: center;
@@ -364,6 +371,10 @@ body {
   font-family: "Open Sans", sans-serif;
   position: relative;
   /*for my hamburger menu */
+}
+
+:focus {
+  outline: 1px dashed #444;
 }
 
 .clear::after {
@@ -385,7 +396,7 @@ body {
   margin: 0;
 }
 
-.unstyled-list a {
+.unstyled-link {
   text-decoration: none;
   /* questo mi serve per <ul> del nav. */
   color: inherit;
@@ -399,6 +410,35 @@ body {
   /* per il mio header: ho tre items dentro, per evitare che si veda.*/
 }
 
+.large-screen {
+  display: none;
+}
+
+/*
+  screenreaders: sposta l'elemento cosi è invisibile. utile per quando devo fare design,
+  ma al contempo, devo tenere conto dell'accessibilità*/
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.icon {
+  font-size: 1.5rem;
+}
+
+/* Step 1: Common Properties: All required to make icons render reliably */
+.icon::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
 /*
 * in questa sezione saranno definiti tutte le cose riguardanti il testo
 *
@@ -407,7 +447,6 @@ body {
 ===================================================================================*/
 p {
   margin: 0 0 0.75rem;
-  text-align: justify;
 }
 
 p:last-child {
@@ -442,7 +481,6 @@ h6:last-child {
 /* MAIN TYPOGRAPHY
   ====================================================================================*/
 .title--main {
-  font-size: 2rem;
   font-weight: 600;
   line-height: 1;
 }
@@ -450,27 +488,17 @@ h6:last-child {
 .para--main {
   font-size: 1rem;
   font-weight: 400;
+  text-align: justify;
 }
 
 /* SECONDARY TYPOGRAPHY
 ==========================================================================================*/
 .title--secondary {
-  font-size: 1.8rem;
-  font-weight: 400;
-  line-height: 1.5;
+  font-weight: 600;
+  font-family: "Open Sans", sans-serif;
 }
 
-/* ABOUT-US
-=============================================================================================*/
-.title-box {
-  margin: 0;
-  transform: translateY(55%);
-  display: inline-block;
-  background-color: #343b26;
-  padding: 10px;
-}
-
-.title-box::after {
+.title--secondary::after {
   content: '';
   display: block;
   width: 100px;
@@ -479,9 +507,77 @@ h6:last-child {
   background-color: #859763;
 }
 
-.text-box {
+.para--secondary {
+  font-size: 0.8rem;
+  font-weight: 400;
+  text-align: justify;
+}
+
+/* TERTIARY TYPOGRAPHY
+=============================================================================================*/
+.title--tertiary {
+  font-family: "Open Sans", sans-serif;
+}
+
+.para--tertiary {
+  font-size: 0.6rem;
+  font-weight: 400;
+  text-align: justify;
+}
+
+/* QUATERNARY TYPOGRAPHY
+=============================================================================================*/
+.title--quaternary {
+  font-size: 1rem;
+  font-family: "Open Sans", sans-serif;
+}
+
+.text--box {
   border: 10px solid #859763;
   padding: 30px 12px 5px 12px;
+  text-align: justify;
+}
+
+/* ABOUT-US
+=============================================================================================*/
+.about-us__title {
+  margin: 0;
+  transform: translateY(55%);
+  display: inline-block;
+  background-color: #343b26;
+  padding: 10px;
+}
+
+/* OUR SERVICES
+===============================================================================================*/
+/*FOOTER
+===============================================================================================*/
+.footer__item {
+  color: #444;
+}
+
+.footer__title {
+  font-size: 1.4rem;
+  font-family: "Open Sans", sans-serif;
+  color: #000;
+}
+
+.footer__icon {
+  font-size: 2rem;
+}
+
+.footer__nav, .footer__contact {
+  text-transform: capitalize;
+}
+
+.footer__para {
+  font-size: 0.8rem;
+}
+
+/* TEXT UTILITIES
+===================================================================================================*/
+.text--left {
+  text-align: left;
 }
 
 /* modules
@@ -516,7 +612,11 @@ h6:last-child {
 
 .button--primary:hover {
   background-color: #4f593b;
-  border: #4f593b;
+  border: 1px solid #4f593b;
+}
+
+.button--primary:active {
+  border: 1px solid transparent;
 }
 
 .button--secondary {
@@ -533,6 +633,130 @@ h6:last-child {
 
 .button--center {
   margin: 0 auto;
+}
+
+.tabs__navigation {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.tabs__button {
+  background-color: #ccc;
+  fill: #859763;
+  padding: 0.2rem 0.5rem;
+  /*so when i hover, the total height of the button doesn't change*/
+  border-top: 2px solid #ccc;
+  flex-basis: 33.33%;
+}
+
+.tabs__button:hover {
+  background-color: #f8fff8;
+  fill: #343b26;
+  border-top: 2px solid #4f593b;
+}
+
+.tabs__button:hover .tabs__title {
+  color: #4f593b;
+}
+
+.tabs__button--active {
+  background-color: #f8fff8;
+  fill: #343b26;
+  border-top: 2px solid #4f593b;
+}
+
+.tabs__button--active .tabs__title {
+  color: #4f593b;
+}
+
+.tabs__svg {
+  height: 50px;
+  width: 50px;
+}
+
+.tabs__title {
+  color: #859763;
+  font-size: 1.2rem;
+  display: block;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.tabs__content {
+  display: none;
+}
+
+.tabs__content--active {
+  display: block;
+}
+
+.accordion__button {
+  position: relative;
+  border-bottom: 1px #444 solid;
+  width: 100%;
+  background-color: #f8fff8;
+  padding-left: 8px;
+}
+
+.accordion__button:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.accordion__icon {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+}
+
+.accordion__icon-item1, .accordion__icon-item2 {
+  height: 3px;
+  width: 30px;
+  background-color: #444;
+}
+
+.accordion__icon-item1 {
+  position: relative;
+  bottom: -2px;
+  transform: rotate(90deg);
+  transition: all 0.2s ease-in;
+}
+
+.accordion__icon-item2 {
+  transform: rotate(0deg);
+  transition: all 0.2s ease-in;
+}
+
+/* it must stay here, because of 
+the cascade property of css*/
+.accordion__icon-item1--active {
+  transform: rotate(0deg);
+  transition: all 0.2s ease-in;
+}
+
+.accordion__icon-item2--active {
+  transform: rotate(-180deg);
+  transition: all 0.2s ease-in;
+}
+
+.accordion__content {
+  max-height: 0;
+  overflow: hidden;
+  transform-origin: top;
+  transform: scale(1, 0);
+  transition: all 0.2s ease-in;
+}
+
+.accordion__content--active {
+  max-height: 80vh;
+  transition: all 0.2s ease-in;
+  transform: scale(1, 1);
+  padding: 10px 5px;
+}
+
+.accordion__para {
+  width: 80%;
+  color: #444;
 }
 
 /* layout
@@ -565,6 +789,7 @@ h6:last-child {
   position: fixed;
   z-index: 100;
   /* perchè altrimenti il title-box di about-us ci va sopra*/
+  font-size: 1.5rem;
 }
 
 .nav__list {
@@ -703,5 +928,184 @@ h6:last-child {
   height: 100px;
   background-color: #343b26;
   transform: translatey(30%) skewy(4deg);
+}
+
+@keyframes slide-01 {
+  0% {
+    transform: translatex(0%);
+  }
+  27% {
+    transform: translatex(0%);
+  }
+  33% {
+    transform: translatex(-25%);
+  }
+  60% {
+    transform: translatex(-25%);
+  }
+  66% {
+    transform: translatex(-50%);
+  }
+  93% {
+    transform: translatex(-50%);
+  }
+  100% {
+    transform: translatex(-75%);
+  }
+}
+
+@keyframes slide-02 {
+  0% {
+    transform: translatex(-25%);
+  }
+  27% {
+    transform: translatex(-25%);
+  }
+  33% {
+    transform: translatex(-50%);
+  }
+  60% {
+    transform: translatex(-50%);
+  }
+  66% {
+    transform: translatex(-75%);
+  }
+  93% {
+    transform: translatex(0%);
+  }
+  100% {
+    transform: translatex(0%);
+  }
+}
+
+@keyframes slide-03 {
+  0% {
+    transform: translatex(-50%);
+  }
+  27% {
+    transform: translatex(-50%);
+  }
+  33% {
+    transform: translatex(-75%);
+  }
+  60% {
+    transform: translatex(-75%);
+  }
+  66% {
+    transform: translatex(0%);
+  }
+  93% {
+    transform: translatex(-25%);
+  }
+  100% {
+    transform: translatex(-25%);
+  }
+}
+
+.services {
+  padding-top: 60px;
+}
+
+.services__slider-container {
+  overflow: hidden;
+  background-color: red;
+  position: relative;
+}
+
+.services__slider {
+  display: flex;
+  width: 400%;
+  transform: translate3d(0, 0, 0);
+  animation: slide-02 ease 10s infinite;
+}
+
+.slide {
+  flex-basis: 25%;
+}
+
+.services__holticulture {
+  background-image: url(https://unsplash.it/500/300);
+}
+
+/*SERVICES NAVIGATION
+=======================================================*/
+.services__navigation {
+  background-color: rgba(0, 0, 0, 0.7);
+  display: inline-block;
+  width: 50%;
+  padding: 5px;
+  position: absolute;
+  bottom: 0;
+  /*to center the absolute positioned element*/
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.services__button {
+  margin: 0 10px;
+  color: #a0e52c;
+}
+
+/* GREENHOUSE
+=============================================================================================================*/
+.greenhouse__intro {
+  margin-bottom: 20px;
+}
+
+.greenhouse__text {
+  font-size: 1.2rem;
+  padding: 5px 10px;
+  font-weight: 300;
+}
+
+.greenhouse__list {
+  padding-left: 10px;
+  position: relative;
+  padding-left: 20px;
+  text-align: left;
+}
+
+.greenhouse__list::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f06c ";
+  color: #444;
+  position: absolute;
+  left: 0;
+}
+
+.footer {
+  background-color: #a0e52c;
+  padding-top: 50px;
+  margin-top: auto;
+}
+
+.footer__item:not(:last-child) {
+  padding-bottom: 30px;
+}
+
+.footer__follow-us {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+}
+
+.footer__link {
+  padding-bottom: 10px;
+}
+
+.footer__copyright {
+  padding-bottom: 15px;
+}
+
+.form__item:not(:last-child) {
+  padding-bottom: 10px;
+}
+
+.form__text {
+  width: 100%;
+  border: none;
+  border-bottom: grey solid 3px;
 }
 /*# sourceMappingURL=main.css.map */

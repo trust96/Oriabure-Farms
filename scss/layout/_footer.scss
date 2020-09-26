@@ -1,0 +1,20 @@
+.footer{
+    background-color: $primary;
+    padding-top: 50px;
+    margin-top:auto;
+}
+.footer__item:not(:last-child){
+    padding-bottom: 30px;
+}
+.footer__follow-us{
+display:flex;
+flex-flow: row nowrap;
+justify-content: space-evenly;
+}
+.footer__link{
+    padding-bottom: 10px;
+}
+.footer__copyright{
+    padding-bottom: 15px;
+}
+

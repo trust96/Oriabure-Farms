@@ -18,8 +18,10 @@
     text-transform: uppercase;
     &:hover {
         background-color: darken($secondary, 20%);
-        border:darken($secondary, 20%);
+        border: 1px solid darken($secondary, 20%);
     }
+    &:active{
+        border: 1px solid transparent;    }
 }
 
 .button--secondary {

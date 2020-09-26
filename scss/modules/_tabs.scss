@@ -1,0 +1,57 @@
+.tabs{
+
+}
+.tabs__navigation{
+    width:100%;
+    display:flex;
+    justify-content: center;
+
+}
+.tabs__button{
+    background-color: #ccc;
+    fill:$secondary;
+    padding: 0.2rem 0.5rem;
+    /*so when i hover, the total height of the button doesn't change*/
+    border-top: 2px solid #ccc;
+    flex-basis: 33.33%;
+
+    &:hover {
+background-color:$white;
+fill:darken($secondary, 30%);
+border-top: 2px solid darken($secondary, 20%);
+    }
+    &:hover .tabs__title{
+        color: darken($secondary, 20%);
+    }
+
+}
+.tabs__button--active{
+    background-color:$white;
+fill:darken($secondary, 30%);
+border-top: 2px solid darken($secondary, 20%);
+}
+
+.tabs__button--active .tabs__title{
+    color: darken($secondary, 20%);
+}
+
+.tabs__svg{
+    height:50px;
+    width:50px;
+    
+}
+.tabs__title{
+    color: $secondary;
+    font-size: 1.2rem;
+    display:block;
+    text-transform: capitalize;
+    font-weight: $font-semibold;
+    
+}
+
+.tabs__content{
+    display:none;
+}
+.tabs__content--active{
+    display:block;
+}

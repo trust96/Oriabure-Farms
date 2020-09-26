@@ -19,6 +19,7 @@ $menu__item-height:$hamburger-height * 10px /100px ;
     background-color: $white;
     position:fixed;
     z-index: 100; /* perchè altrimenti il title-box di about-us ci va sopra*/
+    font-size: 1.5rem;
 }
 .nav__list{
     width:100vw;
