@@ -759,6 +759,10 @@ the cascade property of css*/
   color: #444;
 }
 
+.carousel {
+  height: 800px;
+}
+
 /* layout
 ========================================================================= */
 .grid {

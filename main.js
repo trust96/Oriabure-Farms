@@ -54,16 +54,28 @@ document.querySelector('.tabs__button').click();
 
 /* ACCORDION
 ================================================================================================= */
-for (let i=0; i<2; i++){
-    let accordionButton = document.querySelectorAll('.accordion__button')
-accordionButton[i].addEventListener('click', function () {
+let accordionButton = document.querySelectorAll('.accordion__button');
+for (let i=0; i<accordionButton.length; i++){
+    accordionButton[i].addEventListener('click', function () {
     let accordionContent = document.querySelectorAll('.accordion__content');
-    accordionContent[i].classList.toggle('accordion__content--active');
     let accordionIconItem1 = document.querySelectorAll('.accordion__icon-item1');
     let accordionIconItem2 = document.querySelectorAll('.accordion__icon-item2');
-    accordionIconItem1[i].classList.toggle('accordion__icon-item1--active');
-    accordionIconItem2[i].classList.toggle('accordion__icon-item2--active');
-    console.log(accordionIcon);
- 
+    for (let i=0; i<accordionButton.length; i++){
+        accordionContent[i].classList.remove('accordion__content--active');
+        accordionIconItem1[i].classList.remove('accordion__icon-item1--active');
+        accordionIconItem2[i].classList.remove('accordion__icon-item2--active'); 
+    }
+    console.log(accordionContent[i].contains('accordion__content--active'));
+    accordionContent[i].classList.add('accordion__content--active');
+    accordionIconItem1[i].classList.add('accordion__icon-item1--active');
+    accordionIconItem2[i].classList.add('accordion__icon-item2--active'); 
+    
 })
 }
+
+/* END ACCORDION
+==========================================================================================*/
+
+/* CAROUSEL
+==========================================================================================*/
+//GOAL: at the end of the slide, we will make a clone (so it has a nice flow), and start all over.
