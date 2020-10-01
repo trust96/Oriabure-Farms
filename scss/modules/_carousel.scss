@@ -1,9 +1,14 @@
 .carousel{
-height:800px;
+height:400px;
+width:80%;
+margin: 0 auto;
+overflow:hidden;
 }
 .carousel__container{
-
+display:flex;
+height:100%;
 
 }
-.carousel__slider{
+.carousel__slide{
+    min-width:100%;
 }

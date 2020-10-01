@@ -387,6 +387,7 @@ body {
 .rsp-img {
   max-width: 100%;
   /* per le foto */
+  height: auto;
 }
 
 .unstyled-list {
@@ -406,8 +407,6 @@ body {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
-  overflow-x: hidden;
-  /* per il mio header: ho tre items dentro, per evitare che si veda.*/
 }
 
 .large-screen {
@@ -760,7 +759,19 @@ the cascade property of css*/
 }
 
 .carousel {
-  height: 800px;
+  height: 400px;
+  width: 80%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.carousel__container {
+  display: flex;
+  height: 100%;
+}
+
+.carousel__slide {
+  min-width: 100%;
 }
 
 /* layout

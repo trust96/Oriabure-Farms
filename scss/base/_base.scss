@@ -35,6 +35,7 @@
   
   .rsp-img{
     max-width:100%;  /* per le foto */
+    height:auto;
   }
   .unstyled-list{
     list-style:none; /* lo uso prevalentemente per navigation */
@@ -49,7 +50,6 @@
     width:90%;
     max-width: 1200px;
     margin: 0 auto;
-    overflow-x:hidden; /* per il mio header: ho tre items dentro, per evitare che si veda.*/
   }
   .large-screen{
     display:none;
