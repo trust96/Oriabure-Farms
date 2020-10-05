@@ -7,6 +7,7 @@ overflow:hidden;
 .carousel__container{
 display:flex;
 height:100%;
+transform-style: preserve-3d;
 
 }
 .carousel__slide{

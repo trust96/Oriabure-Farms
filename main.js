@@ -82,30 +82,45 @@ for (let i=0; i<accordionButton.length; i++){
 let carousel = document.querySelector('.carousel');
 let carouselContainer = document.querySelector('.carousel__container');
 let carouselSlide = document.querySelectorAll('.carousel__slide');
+
+// for my if statement, at startSlide function
+const carouselSlideLength = carouselSlide.length;
+
 // create the clone that will occupy respectivly the first and the last position of the carousel
 let firstClone = carouselSlide[0].cloneNode(true);
 let lastClone = carouselSlide[carouselSlide.length - 1].cloneNode(true);
 carouselContainer.append(firstClone);
 carouselContainer.prepend(lastClone);
+firstClone.id = firstClone;
+lastClone.id = lastClone; 
 carouselSlide = document.querySelectorAll('.carousel__slide'); // this is the updated version of carouselSlide, so that it will have included the cloned elements
 // translate the slide by one so it will be on the first image
 let i=0; 
 let slideWidth = carouselSlide[i].clientWidth;
 carouselContainer.style.transform = `translatex(${- slideWidth}px)`;
 // i=1; // cosi che lo moltiplico per slideWidth (quindi si gestisci da solo i valori del translate)
-// let create the function for the image slide
+// let's create the function for the image slide
 console.log(i);
 const startSlide = function () {
         setInterval(() => {
-            i++; //ad ogni intervallo aumenta, cosi da aumentare il valore del translate
+             //ad ogni intervallo aumenta, cosi da aumentare il valore del translate
+             i++;
             carouselContainer.style.transform = `translatex(${- slideWidth * i}px)`;
             carouselContainer.style.transition = `.7s`;
-            if (i === carouselSlide.length - 1){
-                i=0;
-                carouselcontainer.addEventListener('transitioned', () => { carouselContainer.style.transition = `none`;})
-            }
+            console.log(firstClone.id);
+            console.log(carouselSlide[i].id);
             console.log(i);
         }, 4000);
-    
-}
+    }
+
+    carouselContainer.addEventListener('transitionend', function(){
+        // se gli id sono uguali, non ci sarà animazione e i = 1 (perchè i non cambi subito a 2, facciamo scorrere lo slider prima che venga eseguito la funzione)
+        if (carouselSlide[i].id === firstClone.id){
+        carouselContainer.style.transition = "none";
+        i = 1;
+        carouselContainer.style.transform = `translatex(${- slideWidth * i}px)`;
+        }
+    });
 startSlide();
+/* END CAROUSEL
+============================================================================================*/
