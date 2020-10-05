@@ -83,8 +83,8 @@ let carousel = document.querySelector('.carousel');
 let carouselContainer = document.querySelector('.carousel__container');
 let carouselSlide = document.querySelectorAll('.carousel__slide');
 
-// for my if statement, at startSlide function
-const carouselSlideLength = carouselSlide.length;
+// for creating dynamically buttons for each slide
+const initialCarouselSlide = carouselSlide.length;
 
 // create the clone that will occupy respectivly the first and the last position of the carousel
 let firstClone = carouselSlide[0].cloneNode(true);
@@ -112,7 +112,7 @@ const startSlide = function () {
             console.log(i);
         }, 4000);
     }
-
+// questo crea il vero loop dello slider
     carouselContainer.addEventListener('transitionend', function(){
         // se gli id sono uguali, non ci sarà animazione e i = 1 (perchè i non cambi subito a 2, facciamo scorrere lo slider prima che venga eseguito la funzione)
         if (carouselSlide[i].id === firstClone.id){
@@ -122,5 +122,16 @@ const startSlide = function () {
         }
     });
 startSlide();
+
+// dynamic creation of buttons
+for (let n = 0; n < initialCarouselSlide; n++) {
+let carouselNavButton = document.createElement('button');
+carouselNavButton.classList.add('button', 'carousel__button' );
+// carouselNavButton.classList.add('carousel__button');
+const carouselNav = document.querySelector('.carousel__navigation');
+carouselNav.append(carouselNavButton);
+};
+
+
 /* END CAROUSEL
 ============================================================================================*/

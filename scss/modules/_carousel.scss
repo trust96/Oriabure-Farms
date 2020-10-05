@@ -3,6 +3,7 @@ height:400px;
 width:80%;
 margin: 0 auto;
 overflow:hidden;
+position:relative;
 }
 .carousel__container{
 display:flex;
@@ -12,4 +13,18 @@ transform-style: preserve-3d;
 }
 .carousel__slide{
     min-width:100%;
+}
+.carousel__navigation{
+    background-color: red;
+    display: flex;
+    position:absolute;
+    bottom: 0px;
+    right:50%;
+    transform: translatex(50%)
+}
+.carousel__button{
+    background-color: lighten($black, 20%);
+    border-radius: 50%;
+    padding: 50px;
+
 }
