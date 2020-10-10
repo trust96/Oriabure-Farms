@@ -29,7 +29,7 @@
         ===============================================================
         -->
 
-            <ul class="nav__list unstyled-list col">
+            <ul class="nav__list unstyled-list">
                 <li class="nav__item"><a class="unstyled-link" href="#">home</a></li>
                 <li class="nav__item">
                     <a class="unstyled-link" href="#">services</a>
@@ -74,7 +74,7 @@
         <section class="about-us">
             <div class="container">
                 <h2 class="title-box about-us__title title--secondary"> About us </h2>
-                <p class="text--box para--secondary col">
+                <p class="text--box para--secondary">
                     ORIABURE FARMS LTD is a well structured and organised company which
                     approaches the domestic market following the principal standard
                     attached to product quality and efficient services Lorem ipsum dolor
@@ -83,7 +83,7 @@
                     molestiae consequatur quod cumque adipisci fugiat mollitia ex cum
                     repudiandae? Error similique, neque beatae enim explicabo
                     cupiditate? Cumque aperiam animi accusamus labore hic nostrum natus
-                    assumenda minima, mollitia aut tenetur eius enim officia,
+                    assumenda minima, mollitia aut tenetur eius enim official.
                 </p>
             </div>
         </section>
@@ -92,7 +92,7 @@
 
         <section class="services">
             <div class="container grid">
-                <h2 class="title-box title--secondary"> our services </h2>
+                <h2 class="title-box title--secondary col"> our services </h2>
                 <!-- <section class="services__slider-container col">
                     <div class="services__slider ">
                         <div class="slide services__holticulture">
@@ -261,37 +261,37 @@
     -->
         <section class="contact-us">
             <div class="container grid">
-                <h2 class="title-box title--secondary">contact us</h2>
+                <h2 class="title-box title--secondary col">contact us</h2>
 
-                <div class="contact-us__cta large-screen">
-                    <h3>let's talk nature</h3>
-                    <p>
+                <div class="contact-us__cta large-screen col--1-2">
+                    <h3 class="contact-us__title">let's talk nature</h3>
+                    <!-- <p class="contact-us__text">
                         give us feedback. let's collaborate. help us so we can help you
-                    </p>
+                    </p> -->
                 </div>
 
-                <form class="form" action="#">
+                <form class="form col col--1-2" action="#">
                     <div class="form__item">
-                        <label class="sr-only" for="name"> Name </label>
-                        <input class="form__text" type="text" name="" id="name" placeholder="name" />
+                        <label class="form__label  label--text" for="name"> Name </label>
+                        <input class="form__text" type="text" name="" id="name" autocomplete="off"/>
                     </div>
                     <div class="form__item">
-                        <label class="sr-only" for="email">email </label>
-                        <input class="form__text" type="email" name="" id="email" placeholder="email" />
+                        <label class="form__label label--text" for="email">email </label>
+                        <input class="form__text" type="email" name="" id="email" autocomplete="off"/>
                     </div>
                     <div class="form__item">
-                        <label class="sr-only" for="address"> address</label>
-                        <input class="form__text" type="text" name="" id="address" placeholder="address" />
+                        <label class="form__label label--text" for="address"> address</label>
+                        <input class="form__text" type="text" name="" id="address" autocomplete="off"/>
                     </div>
                     <div class="form__item">
-                        <label class="sr-only" for="telephone"> number</label>
-                        <input class="form__text" type="tel" name="" id="telephone" placeholder="phonenumber" />
+                        <label class="form__label label--text" for="telephone"> number</label>
+                        <input class="form__text" type="tel" name="" id="telephone" autocomplete="off"/>
                     </div>
                     <div class="form__item">
-                        <label class="sr-only" for="message"> message</label>
-                        <textarea name="" id="message" cols="30" rows="10"> </textarea>
+                        <label class="form__label label--text" for="message"> message</label>
+                        <textarea class="form__text" name="" id="message" cols="30" rows="10" autocomplete="off"> </textarea>
                     </div>
-                    <button class="button form__button" type="submit">send</button>
+                    <button class="button button--primary form__button" type="submit">send</button>
                 </form>
             </div>
         </section>
@@ -300,7 +300,7 @@
 ============================================================================================-->
     <footer class="footer">
         <div class="container grid">
-            <section class="footer__item footer__contact col">
+            <section class="footer__item footer__contact col col--1-2">
                 <h4 class="footer__title">contact</h4>
                 <p class="footer__info">
                     <a class="unstyled-link" href="mailto:trust4u@hotmail.it">
@@ -311,7 +311,7 @@
                 </p>
                 <p class="footer__info">via della repubblica 18, Agliana, PT</p>
             </section>
-            <section class="footer__item footer__services col">
+            <section class="footer__item footer__services col col--1-2">
                 <h4 class="footer__title">Company</h4>
                 <ul class="footer__nav unstyled-list">
                     <li><a class="footer__link unstyled-link" href="">home</a></li>
@@ -323,19 +323,18 @@
                 </ul>
             </section>
             <section class="footer__item footer__follow-us col">
-                <i class="footer__icon fab fa-facebook-square"></i>
-                <i class="footer__icon fab fa-instagram-square"></i>
-                <i class="footer__icon fab fa-twitter-square"></i>
-                <i class="footer__icon fab fa-youtube-square"></i>
+                <i class="footer__social-icon fab fa-instagram-square"></i>
+                <i class="footer__social-icon fab fa-facebook-square"></i>
+                <i class="footer__social-icon fab fa-twitter-square"></i>
+                <i class="footer__social-icon fab fa-youtube-square"></i>
             </section>
             <section class="footer__item footer__copyright col">
                 <p class="footer__para">&copy; Copyright 2020 Oriabure Farms LTD.</p>
             </section>
         </div>
     </footer>
-
-
-    <!-- SVG (greenhouse)
+    <div class="svg">
+            <!-- SVG (greenhouse)
     =========================================================================================================== -->
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <symbol id="greenhouse">
@@ -457,6 +456,8 @@
             </g>
         </symbol>
     </svg>
+
+    </div>
 </body>
 
 </html>

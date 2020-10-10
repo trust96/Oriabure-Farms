@@ -42,6 +42,9 @@ h6 {
     font-size: 1rem;
     font-weight: $font-regular;
     text-align:justify;
+    @media (min-width:750px){
+        margin-bottom: 2rem;
+    }
 }
 
 /* SECONDARY TYPOGRAPHY
@@ -87,6 +90,7 @@ font-family: $font-main;
         border: 10px solid $secondary;
         padding: 30px 12px 5px 12px;
         text-align:justify;
+        letter-spacing: .1rem;
     
     }
     
@@ -114,7 +118,7 @@ font-family: $font-main;
     font-family: $font-main;
     color:#000;
 }
-.footer__icon{
+.footer__social-icon{
     font-size:2rem;
 }
 .footer__nav, .footer__contact{

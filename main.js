@@ -65,7 +65,6 @@ for (let i=0; i<accordionButton.length; i++){
         accordionIconItem1[i].classList.remove('accordion__icon-item1--active');
         accordionIconItem2[i].classList.remove('accordion__icon-item2--active'); 
     }
-    console.log(accordionContent[i].contains('accordion__content--active'));
     accordionContent[i].classList.add('accordion__content--active');
     accordionIconItem1[i].classList.add('accordion__icon-item1--active');
     accordionIconItem2[i].classList.add('accordion__icon-item2--active'); 
@@ -107,9 +106,9 @@ const startSlide = function () {
              i++;
             carouselContainer.style.transform = `translatex(${- slideWidth * i}px)`;
             carouselContainer.style.transition = `.7s`;
-            console.log(firstClone.id);
-            console.log(carouselSlide[i].id);
-            console.log(i);
+            // console.log(firstClone.id);
+            // console.log(carouselSlide[i].id);
+            // console.log(i);
         }, 4000);
     }
 // questo crea il vero loop dello slider
@@ -122,16 +121,35 @@ const startSlide = function () {
         }
     });
 startSlide();
-
-// dynamic creation of buttons
-for (let n = 0; n < initialCarouselSlide; n++) {
-let carouselNavButton = document.createElement('button');
-carouselNavButton.classList.add('button', 'carousel__button' );
-// carouselNavButton.classList.add('carousel__button');
-const carouselNav = document.querySelector('.carousel__navigation');
-carouselNav.append(carouselNavButton);
-};
-
+const repairInterval = setInterval(() => {
+    if (i>3){
+        i=1;
+        }  
+}, 20);
 
 /* END CAROUSEL
 ============================================================================================*/
+
+/* FORM
+=============================================================================================*/
+    let formLabel = document.querySelectorAll('.form__label');
+let formText = document.querySelectorAll('.form__text');
+let formItem=document.querySelectorAll('.form__item');
+for (let i=0; i<formText.length; i++){
+formText[i].addEventListener('focus', function(){
+
+formLabel[i].classList.add('form__label--active');
+formItem[i].classList.add('form__item--active');
+})
+formText[i].addEventListener('focusout', function(){
+
+        formItem[i].classList.remove('form__item--active');
+
+    if (!(formText[i].value)){
+            formLabel[i].classList.remove('form__label--active');
+
+    }
+    })
+}
+/* END FORM
+=============================================================================================*/
