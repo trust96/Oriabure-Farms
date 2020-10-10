@@ -4,12 +4,16 @@
   html{
     margin:0;
     padding:0;
-    height:100%
+    height:100%;
+    font-size:100%;
+    @media(min-width: 750px){
+      font-size:150%;
+    }
   }
   html,body{
   margin:0;
   padding:0;
-  font-size:100%;
+ 
 
   }
 
@@ -18,15 +22,13 @@
     min-height:100%;
     line-height:1.5;
     color:#000;
+    background-color: #ccc;
     text-align:center;
     overflow-x: hidden; /* for my nav and header-slider */
     font-family: $font-main;
     position:relative; /*for my hamburger menu */
   }
 
- :focus{
-  outline: 1px dashed $black;
-  }
 .clear::after{                /* questo è un state changer che mette clear per il float. è da mettere sul container, dato che after funge da ultimo figlio */
     content:'';
     clear:both;
@@ -53,6 +55,9 @@
   }
   .large-screen{
     display:none;
+    @media (min-width:750px) {
+      display:initial;
+    }
   }
   /*
   screenreaders: sposta l'elemento cosi è invisibile. utile per quando devo fare design,

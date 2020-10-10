@@ -352,12 +352,18 @@ html {
   margin: 0;
   padding: 0;
   height: 100%;
+  font-size: 100%;
+}
+
+@media (min-width: 750px) {
+  html {
+    font-size: 150%;
+  }
 }
 
 html, body {
   margin: 0;
   padding: 0;
-  font-size: 100%;
 }
 
 body {
@@ -365,16 +371,13 @@ body {
   min-height: 100%;
   line-height: 1.5;
   color: #000;
+  background-color: #ccc;
   text-align: center;
   overflow-x: hidden;
   /* for my nav and header-slider */
   font-family: "Open Sans", sans-serif;
   position: relative;
   /*for my hamburger menu */
-}
-
-:focus {
-  outline: 1px dashed #444;
 }
 
 .clear::after {
@@ -411,6 +414,12 @@ body {
 
 .large-screen {
   display: none;
+}
+
+@media (min-width: 750px) {
+  .large-screen {
+    display: initial;
+  }
 }
 
 /*
@@ -490,6 +499,12 @@ h6:last-child {
   text-align: justify;
 }
 
+@media (min-width: 750px) {
+  .para--main {
+    margin-bottom: 2rem;
+  }
+}
+
 /* SECONDARY TYPOGRAPHY
 ==========================================================================================*/
 .title--secondary {
@@ -535,6 +550,7 @@ h6:last-child {
   border: 10px solid #859763;
   padding: 30px 12px 5px 12px;
   text-align: justify;
+  letter-spacing: .1rem;
 }
 
 /* ABOUT-US
@@ -561,7 +577,7 @@ h6:last-child {
   color: #000;
 }
 
-.footer__icon {
+.footer__social-icon {
   font-size: 2rem;
 }
 
@@ -647,6 +663,7 @@ h6:last-child {
   /*so when i hover, the total height of the button doesn't change*/
   border-top: 2px solid #ccc;
   flex-basis: 33.33%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .tabs__button:hover {
@@ -684,6 +701,7 @@ h6:last-child {
 
 .tabs__content {
   display: none;
+  background-color: #f8fff8;
 }
 
 .tabs__content--active {
@@ -763,6 +781,7 @@ the cascade property of css*/
   width: 80%;
   margin: 0 auto;
   overflow: hidden;
+  position: relative;
 }
 
 .carousel__container {
@@ -775,15 +794,42 @@ the cascade property of css*/
   min-width: 100%;
 }
 
+.carousel__navigation {
+  background-color: red;
+  display: flex;
+  position: absolute;
+  bottom: 0px;
+  right: 50%;
+  transform: translatex(50%);
+}
+
+.carousel__button {
+  background-color: #777777;
+  border-radius: 50%;
+  padding: 50px;
+}
+
 /* layout
 ========================================================================= */
 .grid {
   display: flex;
-  flex-flow: column nowrap;
+  flex-wrap: wrap;
 }
 
 .col {
   flex: 0 0 100%;
+}
+
+@media (min-width: 750px) {
+  .col--1-2 {
+    flex: 0 0 50%;
+  }
+  .col--2-3 {
+    flex-basis: 66.6666%;
+  }
+  .col--1-3 {
+    flex-basis: 33.33333%;
+  }
 }
 
 @keyframes navigation {
@@ -798,7 +844,6 @@ the cascade property of css*/
 }
 
 .nav {
-  height: 90px;
   width: 100%;
   /* cosi che il menu resti a destra */
   background-color: #f8fff8;
@@ -806,6 +851,12 @@ the cascade property of css*/
   z-index: 100;
   /* perchè altrimenti il title-box di about-us ci va sopra*/
   font-size: 1.5rem;
+}
+
+@media (min-width: 750px) {
+  .nav {
+    font-size: initial;
+  }
 }
 
 .nav__list {
@@ -823,6 +874,17 @@ the cascade property of css*/
   transition: all 0.5s ease-in-out;
 }
 
+@media (min-width: 750px) {
+  .nav__list {
+    flex-direction: row;
+    flex: auto;
+    transform: none;
+    position: static;
+    width: initial;
+    height: initial;
+  }
+}
+
 .nav__list--active {
   transform: translatex(0%);
   transition: all 0.5s ease-in-out;
@@ -835,6 +897,12 @@ the cascade property of css*/
   flex: 1 1 100%;
 }
 
+@media (min-width: 750px) {
+  .nav__item {
+    border: none;
+  }
+}
+
 .nav__item a {
   flex-basis: 100%;
   display: flex;
@@ -843,10 +911,36 @@ the cascade property of css*/
   text-transform: capitalize;
   color: #859763;
   font-weight: 700;
+  position: relative;
 }
 
 .nav__item a:hover {
   background-color: rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 750px) {
+  .nav__item a:hover {
+    background-color: transparent;
+  }
+}
+
+@media (min-width: 750px) {
+  .nav__item a::after {
+    content: '';
+    display: block;
+    height: .3rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    transform: scalex(0);
+    background-color: #859763;
+    transition: all ease 0.5s;
+    border-radius: 2px;
+  }
+  .nav__item a:hover::after {
+    transform: scalex(0.6);
+    transition: all ease 0.5s;
+  }
 }
 
 /* my Hamburger menu
@@ -857,6 +951,12 @@ the cascade property of css*/
   position: absolute;
   top: 1.5rem;
   right: 1rem;
+}
+
+@media (min-width: 750px) {
+  .menu {
+    display: none;
+  }
 }
 
 .menu__item, .menu__item::before, .menu__item::after {
@@ -917,9 +1017,10 @@ the cascade property of css*/
 }
 
 .header__hero {
-  height: 100%;
+  height: 80vh;
   padding: 95px 10px 10px 10px;
   background-color: rgba(0, 0, 0, 0.3);
+  min-height: 600px;
 }
 
 .header__hero::before {
@@ -935,6 +1036,7 @@ the cascade property of css*/
   background-color: #343b26;
   padding: 5vh 0 0 0;
   background-color: #a0e52c, 30%;
+  min-height: 50vh;
 }
 
 .about-us::after {
@@ -946,80 +1048,15 @@ the cascade property of css*/
   transform: translatey(30%) skewy(4deg);
 }
 
-@keyframes slide-01 {
-  0% {
-    transform: translatex(0%);
-  }
-  27% {
-    transform: translatex(0%);
-  }
-  33% {
-    transform: translatex(-25%);
-  }
-  60% {
-    transform: translatex(-25%);
-  }
-  66% {
-    transform: translatex(-50%);
-  }
-  93% {
-    transform: translatex(-50%);
-  }
-  100% {
-    transform: translatex(-75%);
-  }
-}
-
-@keyframes slide-02 {
-  0% {
-    transform: translatex(-25%);
-  }
-  27% {
-    transform: translatex(-25%);
-  }
-  33% {
-    transform: translatex(-50%);
-  }
-  60% {
-    transform: translatex(-50%);
-  }
-  66% {
-    transform: translatex(-75%);
-  }
-  93% {
-    transform: translatex(0%);
-  }
-  100% {
-    transform: translatex(0%);
-  }
-}
-
-@keyframes slide-03 {
-  0% {
-    transform: translatex(-50%);
-  }
-  27% {
-    transform: translatex(-50%);
-  }
-  33% {
-    transform: translatex(-75%);
-  }
-  60% {
-    transform: translatex(-75%);
-  }
-  66% {
-    transform: translatex(0%);
-  }
-  93% {
-    transform: translatex(-25%);
-  }
-  100% {
-    transform: translatex(-25%);
+@media (min-width: 750px) {
+  .about-us::after {
+    transform: translatey(50%) skewy(4deg);
   }
 }
 
 .services {
   padding-top: 60px;
+  padding-bottom: 50px;
 }
 
 .services__slider-container {
@@ -1092,7 +1129,7 @@ the cascade property of css*/
 }
 
 .footer {
-  background-color: #a0e52c;
+  background-color: #859763;
   padding-top: 50px;
   margin-top: auto;
 }
@@ -1104,7 +1141,11 @@ the cascade property of css*/
 .footer__follow-us {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-evenly;
+  justify-content: center;
+}
+
+.footer__social-icon:not(:last-of-type) {
+  margin-right: 2.4rem;
 }
 
 .footer__link {
@@ -1115,13 +1156,101 @@ the cascade property of css*/
   padding-bottom: 15px;
 }
 
+.contact-us {
+  padding-bottom: 40px;
+  background-color: #ccc;
+}
+
+.contact-us__cta {
+  background-image: linear-gradient(rgba(211, 61, 33, 0.4), rgba(211, 61, 33, 0.4)), url(../images/greenhouse.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.contact-us__title {
+  font-size: 3rem;
+  color: #222;
+  font-weight: 300;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+  transform: translateY(100%);
+}
+
+.contact-us__text {
+  text-transform: uppercase;
+  font-family: "Bree Serif", serif;
+  font-weight: font-light;
+  color: #aaa;
+}
+
+.form {
+  padding: 20px 20px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
 .form__item:not(:last-child) {
   padding-bottom: 10px;
 }
 
+.form__item {
+  text-align: left;
+  position: relative;
+}
+
 .form__text {
-  width: 100%;
   border: none;
-  border-bottom: grey solid 3px;
+  outline: none;
+  border-bottom: #5e5e5e 2px solid;
+  width: 100%;
+  background-color: inherit;
+  font-size: 0.8rem;
+}
+
+.form__item::after {
+  width: 100%;
+  height: 2px;
+  background-color: #d34c21;
+  content: '';
+  display: block;
+  transition: all ease .25s;
+  position: absolute;
+  transform: translatey(-100%) scaleX(0);
+}
+
+.form__item--active.form__item::after {
+  transform: translatey(-100%) scaleX(1);
+  transition: all ease 0.5s;
+}
+
+.form__label {
+  display: inline-block;
+  color: #8e8e8e;
+  transform: translateY(100%);
+  transition: all ease 0.25s;
+  text-transform: uppercase;
+}
+
+.form__label--active {
+  transform: translateY(0);
+  transition: all ease 0.25s;
+  color: #000;
+}
+
+.form__button {
+  background-color: #d34c21;
+  width: 80%;
+  border: #d34c21;
+  font-size: 1.5rem;
+}
+
+.form__button:hover {
+  background-color: #7b2c13;
+  border: #d34c21;
+}
+
+/* shame
+=========================================================================*/
+.svg {
+  display: none;
 }
 /*# sourceMappingURL=main.css.map */

@@ -1,76 +1,7 @@
 
-@keyframes slide-01{
-    0%{
-        transform:translatex(0%);
-    }
-    27%{
-        transform:translatex(0%);
-    }
-    33%{
-        transform:translatex(-25%);
-    }
-    60%{
-transform:translatex(-25%);
-    }
-    66%{
-        transform:translatex(-50%);
-    }
-    93%{
-        transform:translatex(-50%);
-    }
-    100%{
-        transform:translatex(-75%);
-    }
-}
-
-@keyframes slide-02{
-    0%{
-        transform:translatex(-25%);
-    }
-    27%{
-        transform:translatex(-25%);
-    }
-    33%{
-        transform:translatex(-50%);
-    }
-    60%{
-transform:translatex(-50%);
-    }
-    66%{
-        transform:translatex(-75%);
-    }
-    93%{
-        transform:translatex(0%);
-    }
-    100%{
-        transform:translatex(0%);
-    }
-}
-@keyframes slide-03{
-    0%{
-        transform:translatex(-50%);
-    }
-    27%{
-        transform:translatex(-50%);
-    }
-    33%{
-        transform:translatex(-75%);
-    }
-    60%{
-transform:translatex(-75%);
-    }
-    66%{
-        transform:translatex(0%);
-    }
-    93%{
-        transform:translatex(-25%);
-    }
-    100%{
-        transform:translatex(-25%);
-    }
-}
 .services{
     padding-top: 60px;
+    padding-bottom: 50px;
 }
 .services__slider-container{
     overflow: hidden;

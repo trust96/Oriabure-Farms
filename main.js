@@ -65,7 +65,6 @@ for (let i=0; i<accordionButton.length; i++){
         accordionIconItem1[i].classList.remove('accordion__icon-item1--active');
         accordionIconItem2[i].classList.remove('accordion__icon-item2--active'); 
     }
-    console.log(accordionContent[i].contains('accordion__content--active'));
     accordionContent[i].classList.add('accordion__content--active');
     accordionIconItem1[i].classList.add('accordion__icon-item1--active');
     accordionIconItem2[i].classList.add('accordion__icon-item2--active'); 
@@ -83,8 +82,8 @@ let carousel = document.querySelector('.carousel');
 let carouselContainer = document.querySelector('.carousel__container');
 let carouselSlide = document.querySelectorAll('.carousel__slide');
 
-// for my if statement, at startSlide function
-const carouselSlideLength = carouselSlide.length;
+// for creating dynamically buttons for each slide
+const initialCarouselSlide = carouselSlide.length;
 
 // create the clone that will occupy respectivly the first and the last position of the carousel
 let firstClone = carouselSlide[0].cloneNode(true);
@@ -107,12 +106,12 @@ const startSlide = function () {
              i++;
             carouselContainer.style.transform = `translatex(${- slideWidth * i}px)`;
             carouselContainer.style.transition = `.7s`;
-            console.log(firstClone.id);
-            console.log(carouselSlide[i].id);
-            console.log(i);
+            // console.log(firstClone.id);
+            // console.log(carouselSlide[i].id);
+            // console.log(i);
         }, 4000);
     }
-
+// questo crea il vero loop dello slider
     carouselContainer.addEventListener('transitionend', function(){
         // se gli id sono uguali, non ci sarà animazione e i = 1 (perchè i non cambi subito a 2, facciamo scorrere lo slider prima che venga eseguito la funzione)
         if (carouselSlide[i].id === firstClone.id){
@@ -122,5 +121,35 @@ const startSlide = function () {
         }
     });
 startSlide();
+const repairInterval = setInterval(() => {
+    if (i>3){
+        i=1;
+        }  
+}, 20);
+
 /* END CAROUSEL
 ============================================================================================*/
+
+/* FORM
+=============================================================================================*/
+    let formLabel = document.querySelectorAll('.form__label');
+let formText = document.querySelectorAll('.form__text');
+let formItem=document.querySelectorAll('.form__item');
+for (let i=0; i<formText.length; i++){
+formText[i].addEventListener('focus', function(){
+
+formLabel[i].classList.add('form__label--active');
+formItem[i].classList.add('form__item--active');
+})
+formText[i].addEventListener('focusout', function(){
+
+        formItem[i].classList.remove('form__item--active');
+
+    if (!(formText[i].value)){
+            formLabel[i].classList.remove('form__label--active');
+
+    }
+    })
+}
+/* END FORM
+=============================================================================================*/

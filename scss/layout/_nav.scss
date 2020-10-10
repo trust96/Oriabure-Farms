@@ -14,12 +14,16 @@ $menu__item-height:$hamburger-height * 10px /100px ;
 }
 
 .nav{
-    height:90px;
+
     width:100%; /* cosi che il menu resti a destra */
     background-color: $white;
     position:fixed;
     z-index: 100; /* perchè altrimenti il title-box di about-us ci va sopra*/
     font-size: 1.5rem;
+    @media(min-width: 750px){
+        font-size: initial;
+    }
+
 }
 .nav__list{
     width:100vw;
@@ -33,6 +37,16 @@ $menu__item-height:$hamburger-height * 10px /100px ;
     right:0;
     transform: translatex(100%);
     transition:all 0.5s ease-in-out;
+    @media(min-width: 750px){
+        flex-direction: row;
+        flex:auto;
+        transform: none;
+        position:static;
+        width:initial;
+        height:initial;
+
+
+    }
 
 }
 
@@ -45,6 +59,9 @@ $menu__item-height:$hamburger-height * 10px /100px ;
     border-bottom: solid 1px rgba(0,0,0,0.15); /* piccolo style, non ha nessun valore semantico*/
     display:flex;
     flex: 1 1 100%;
+    @media(min-width: 750px){
+        border:none;
+    }
 }
 .nav__item a{
     flex-basis:100%;
@@ -54,9 +71,36 @@ $menu__item-height:$hamburger-height * 10px /100px ;
     text-transform: capitalize;
     color:$secondary;
     font-weight: $font-bold;
+    position:relative;
     &:hover{
           background-color: rgba(0,0,0,0.20);
-      }
+          @media(min-width: 750px){
+            background-color: transparent;
+        }
+          }
+    }
+    @media (min-width:750px){
+        .nav__item a::after{
+            content:'';
+            display:block;
+               height:.3rem;
+            position:absolute;
+            bottom:0;
+            width:100%;
+            transform: scalex(0);
+            background-color: $secondary;
+            transition: all ease 0.5s ;
+            border-radius: 2px;
+
+
+        }
+        .nav__item a:hover::after{
+            transform: scalex(0.6);
+            transition: all ease 0.5s ;
+
+
+
+        }
     }
 
 
@@ -71,6 +115,9 @@ $menu__item-height:$hamburger-height * 10px /100px ;
     position: absolute;
     top:1.5rem;
     right:1rem;
+    @media(min-width:750px){
+        display:none;
+    }
 }
 
 .menu__item, .menu__item::before, .menu__item::after{

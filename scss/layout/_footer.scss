@@ -1,5 +1,5 @@
 .footer{
-    background-color: $primary;
+    background-color: $secondary;
     padding-top: 50px;
     margin-top:auto;
 }
@@ -9,7 +9,11 @@
 .footer__follow-us{
 display:flex;
 flex-flow: row nowrap;
-justify-content: space-evenly;
+justify-content:center;
+}
+.footer__social-icon:not(:last-of-type){
+    margin-right: 2.4rem;
+
 }
 .footer__link{
     padding-bottom: 10px;
