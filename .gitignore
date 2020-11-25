@@ -4,3 +4,5 @@ Relazione
 *.sass.map
 *.scss.map
 node_modules
+scss
+package*.json
